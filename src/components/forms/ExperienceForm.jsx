@@ -17,6 +17,7 @@ export default function ExperienceForm({
       {editItemWithId === -1 ? (
         <ListItems
           items={items}
+          setItems={setItems}
           setEditItemWithId={setEditItemWithId}
           formName={formName}
         ></ListItems>

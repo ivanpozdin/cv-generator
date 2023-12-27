@@ -1,5 +1,12 @@
 :root {
   font-size: 62.5%;
+  --gray-bg-color: #f1f5f9;
+  --form-width: 90%;
+  --form-min-width: 30rem;
+  --form-max-width: 50rem;
+  --shadow-edit-forms: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  --save-color: #5adbb5;
 }
 
 * {
@@ -9,18 +16,30 @@ body {
   font-size: 1.6rem;
   display: flex;
   flex-direction: column;
-  /* align-items: stretch; */
 }
 #root {
   align-self: stretch;
   padding: 2rem;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: repeat(3, auto);
   justify-content: flex-start;
   column-gap: 3rem;
   row-gap: 3rem;
-  background-color: #e2e8f0;
+  background-color: var(--gray-bg-color);
+}
+
+.edit-cv-container {
+  grid-column: 1/2;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.edit-cv-container h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 3rem;
 }
 
 form {
@@ -29,25 +48,40 @@ form {
 }
 
 .personal-form {
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  box-shadow: var(--shadow-edit-forms);
   border-radius: 2rem;
   padding: 1rem 2rem;
-  min-width: 30rem;
-  width: 60%;
-  grid-column: 1/2;
-  grid-row: 1/2;
-  justify-self: center;
+  min-width: var(--form-min-width);
+  max-width: var(--form-max-width);
+  width: var(--form-width);
+  background-color: #fff;
+}
+.personal-form h3 {
+  text-align: center;
+}
+input {
+  background-color: var(--gray-bg-color);
+  font-size: 1.6rem;
+  padding: 0.3rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.personal-form button {
+  margin-top: 2rem;
+  background-color: var(--save-color);
 }
 
 .cv-view {
   grid-column: 2/3;
-  grid-row: 1/4;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   padding: 2rem;
   background-color: #fff;
-  /* aspect-ratio: 1 / 1.4142; */
+  aspect-ratio: 1 / 1.4142;
+  padding: 6rem 5rem;
 }
 
 .personal-view {
@@ -94,16 +128,25 @@ form {
   }
 }
 
+@media screen and (max-width: 750px) {
+  #root {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .editor {
   justify-self: center;
-  border: 1px solid black;
+  box-shadow: var(--shadow-edit-forms);
   border-radius: 2rem;
-  padding: 1rem 2rem;
-  min-width: 30rem;
-  width: 60%;
+  padding: 1rem 0;
+  min-width: var(--form-min-width);
+  max-width: var(--form-max-width);
+  width: var(--form-width);
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  background-color: #fff;
 }
 
 .editor h3 {
@@ -117,9 +160,16 @@ form {
   flex-direction: column;
   align-items: stretch;
 }
-.editor li > button {
+.editor li {
   text-align: left;
   width: 100%;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  padding: 0 2rem 2px 2rem;
+  padding-bottom: 2px;
+
+  border-bottom: 2px var(--gray-bg-color) solid;
 }
 
 .edit-btns {
@@ -129,11 +179,14 @@ form {
 
 .edit-btns button {
   margin-top: 1rem;
-  /* flex-grow: 1; */
+}
+
+.edit-btn {
+  margin-left: auto;
 }
 
 .save-btn {
-  background-color: #04aa6d;
+  background-color: var(--save-color);
 }
 
 .experience-list-view {
@@ -176,6 +229,22 @@ form {
 }
 
 .delete-btn {
-  background-color: #d11a2a;
+  background-color: #ed0800;
+  color: #fff;
   margin-right: auto;
+}
+
+.experience-form input {
+  margin-bottom: 1rem;
+}
+
+.experience-form {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.edit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

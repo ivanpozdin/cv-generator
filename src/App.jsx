@@ -9,27 +9,27 @@ import { useState } from "react";
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
-    name: "Ivan Pozdin",
-    phone: "+995 59550543",
-    email: "ivanllpozdin@gmail.com",
-    address: "38 Ana Politkovsakya St, Tbilisi, Georgia",
+    name: "Cecil J. Pierce",
+    phone: "906-341-2606",
+    email: "CecilJPierce@teleworm.us ",
+    address: "3973 Wood Duck Drive Manistique, MI 49854 ",
   });
 
   const [educations, setEducations] = useState([
     {
-      organization: "Lyceum #8",
+      organization: "Wood Duck school #83",
       role: "high school",
-      startDate: "2019-09-01",
-      endDate: "2021-07-10",
-      location: "Sosnovy Bor",
+      startDate: "1994-09-01",
+      endDate: "1996-07-10",
+      location: "Wood Duck",
       id: 1,
     },
     {
-      organization: "SPSU",
+      organization: "Harvard",
       role: "Bachelor's",
-      startDate: "2021-09-01",
-      endDate: "2023-05-12",
-      location: "Peterhof",
+      startDate: "1996-09-01",
+      endDate: "2000-05-12",
+      location: "Harvard",
       id: 2,
     },
   ]);
@@ -38,44 +38,46 @@ function App() {
     {
       organization: "Google",
       role: "Junior Frontend Developer",
-      startDate: "2019-09-01",
-      endDate: "2021-07-10",
-      location: "Sosnovy Bor",
+      startDate: "205-09-01",
+      endDate: "2010-07-10",
+      location: "Seattle",
       id: 1,
     },
     {
-      organization: "Yandex",
+      organization: "Facebook",
       role: "Middle Frontend Developer",
-      startDate: "2021-09-01",
-      endDate: "2023-07-10",
-      location: "Saint-Petersburg",
+      startDate: "2010-09-01",
+      endDate: "2017-07-10",
+      location: "San-Francisco",
       id: 2,
     },
   ]);
 
   return (
     <>
-      <PersonalForm
-        personalInfo={personalInfo}
-        setPersonalInfo={setPersonalInfo}
-      />
+      <div className="edit-cv-container">
+        <h1>Edit CV:</h1>
+        <PersonalForm
+          personalInfo={personalInfo}
+          setPersonalInfo={setPersonalInfo}
+        />
 
-      <ExperienceForm
-        items={educations}
-        setItems={setEducations}
-        formName="Education"
-        organizationType="institution"
-        roleType="degree"
-      ></ExperienceForm>
+        <ExperienceForm
+          items={educations}
+          setItems={setEducations}
+          formName="Education"
+          organizationType="institution"
+          roleType="degree"
+        ></ExperienceForm>
 
-      <ExperienceForm
-        items={works}
-        setItems={setWorks}
-        formName="Work experience"
-        organizationType="company"
-        roleType="position"
-      ></ExperienceForm>
-
+        <ExperienceForm
+          items={works}
+          setItems={setWorks}
+          formName="Work experience"
+          organizationType="company"
+          roleType="position"
+        ></ExperienceForm>
+      </div>
       <div className="cv-view">
         <Personal personalInfo={personalInfo} />
         <Experience items={educations} formName={"Education"}></Experience>

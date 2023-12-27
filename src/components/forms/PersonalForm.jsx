@@ -32,6 +32,7 @@ export default function PersonalForm({ personalInfo, setPersonalInfo }) {
         console.log("submit!");
       }}
     >
+      <h3>Personal details:</h3>
       <label htmlFor="name">Name: </label>
       <input
         type="text"
